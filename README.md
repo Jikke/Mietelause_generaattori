@@ -1,4 +1,3 @@
-# Mietelause generaattori
-Tietorakenteet ja algoritmit -kurssin harjoitustyö.
-Tavoitteena on luoda Markovin ketjua hyödyntäen laskennallisesti luova mietelause generaattori.
-Tämä virke on muokattu kotikoneella.
+# Quote generator
+This is a student project for data structures and algorithms course. \
+The goal of this project is to create a creative quote generator using Markov chain.
