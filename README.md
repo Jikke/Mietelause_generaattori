@@ -1,2 +1,2 @@
-# Mietelause_generaattori
-Tietorakenteet ja algoritmit -kurssin harjoitustyö
+# Mietelause generaattori
+Tietorakenteet ja algoritmit -kurssin harjoitustyö.
