@@ -1,6 +1,6 @@
 # Week 1 report
 ## Tasks done
-I chose the topic of my project. This week's main task has been familiarizing myself to Markov chains using articles and videos found on the internet. \
+I chose the topic for my project. This week's main task has been familiarizing myself to Markov chains using articles and videos found on the internet. \
 I created this GitHub repository and connected both local repositories on my student laptop (fuksiläppäri) and home PC to it.
 
 ## What I learned
