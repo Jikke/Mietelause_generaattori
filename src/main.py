@@ -17,15 +17,13 @@ def main(files, slicer, handler, trie):
 
     done_trie = handler.get_trie()
 
+    root_node = handler._trie._root
+
     # Test prints..
-    print(raw_lines[15])
-    print(sliced_sentences[15])
-    word_list = slicer.slice_to_word_list(sliced_sentences[15])
-    print(handler._trie.does_sentence_exists(word_list))
-    print("\n".join(done_trie))
-    print(f"Items: {len(done_trie)}")
-    print(f"Occurences of if: {handler._trie._root._children['if']._occurences}")
-    
+    # print("\n".join(done_trie))
+    # print(f"Items: {len(done_trie)}")
+    # print(f"Occurences of if: {handler._trie._root._children['if']._occurences}")
+    print(handler.create_quote(7))
 
 
 if __name__ == "__main__":

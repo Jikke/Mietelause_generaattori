@@ -1,3 +1,4 @@
+import random
 
 class Handler:
         
@@ -28,3 +29,27 @@ class Handler:
             List(String): Quotes from trie-datastructure
         """
         return self._trie.get_all()
+
+    def weight_children(self, node):
+        children = node._children
+        weighted_words = []
+        for word,node in children.items():
+            curr_list = [word] * node._occurences
+            weighted_words.extend(curr_list)
+        return weighted_words
+
+
+    def create_quote(self, length):
+        curr_node = self._trie._root
+        quote = []
+        for i in range(length):
+            weighted_words = self.weight_children(curr_node)
+            print(f"weighted_words = {weighted_words}")
+            picked_word = random.choice(weighted_words)
+            print(f"picked_word = {picked_word}")
+            quote.append(picked_word)
+            curr_node = curr_node._children[picked_word]
+        print(f"quote-list = {quote}")
+        return " ".join(quote)
+
+
