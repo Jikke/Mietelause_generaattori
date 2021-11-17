@@ -1,4 +1,4 @@
-from dictionary import Dictionary
+from trie import Trie
 import re
 
 class Slicer:
@@ -6,7 +6,7 @@ class Slicer:
     def __init__(self):
         return
 
-    def slice_to_list(self, rawtext):
+    def slice_to_raw_lines(self, rawtext):
         """Slices text line by line into list.
 
         Args:
@@ -22,7 +22,7 @@ class Slicer:
 
         return lines
 
-    def slice_to_sentences(self, rawlist):
+    def slice_specials(self, rawlist):
         """Removes "-characters from quotes and everything outside of them.
 
         Args:
@@ -56,7 +56,15 @@ class Slicer:
 
 
 
-    def slice_to_words(self, sentence):
+    def slice_to_word_list(self, sentence):
+        """One line of text modified into word list separated by spaces.
+
+        Args:
+            sentence (String): Line of text as one String.
+
+        Returns:
+            List(String): Wordlist with capitalized letters lowercased.
+        """
         
         current_words = sentence.split()
         current_words = [word.lower() for word in current_words]

@@ -1,32 +1,30 @@
 from files import Files
 from slicer import Slicer
 from handler import Handler
-from dictionary import Dictionary
+from trie import Trie
 import os, re
 
 
-def main(files, slicer, handler, dictionary):
+def main(files, slicer, handler, trie):
 
     rawtext = files.read_file()
 
-    raw_list = slicer.slice_to_list(rawtext)
+    raw_lines = slicer.slice_to_raw_lines(rawtext)
 
-    sliced_sentences = slicer.slice_to_sentences(raw_list)
+    sliced_sentences = slicer.slice_specials(raw_lines)
 
     handler.crunch_sentences(sliced_sentences)
 
-    done_dict = dictionary.get_all()
+    done_trie = handler.get_trie()
 
     # Test prints..
-    print(raw_list[15])
+    print(raw_lines[15])
     print(sliced_sentences[15])
-    print(done_dict['and'])
-    print(done_dict['discuss'])
-    print('discuss' in done_dict.keys())
-
-    for key, value in done_dict.items():
-        if len(value) > 1:
-            print(f"Key: {key},\nvalue: {value}")
+    word_list = slicer.slice_to_word_list(sliced_sentences[15])
+    print(handler._trie.does_sentence_exists(word_list))
+    print("\n".join(done_trie))
+    print(f"Items: {len(done_trie)}")
+    print(f"Occurences of if: {handler._trie._root._children['if']._occurences}")
     
 
 
@@ -36,13 +34,13 @@ if __name__ == "__main__":
 
     files_object = Files(quote_archive_path)
     
-    dictionary_object = Dictionary()
+    trie_object = Trie()
 
     slicer_object = Slicer()
 
-    handler_object = Handler(dictionary_object, slicer_object)
+    handler_object = Handler(trie_object, slicer_object)
 
     
 
     # Pass file reader and slicer as objects to main-method
-    main(files_object, slicer_object, handler_object, dictionary_object)
+    main(files_object, slicer_object, handler_object, trie_object)
