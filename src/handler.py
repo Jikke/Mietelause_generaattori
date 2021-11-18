@@ -7,7 +7,7 @@ class Handler:
         self._slicer = slicer
     
 
-    def crunch_sentences(self, sentences):
+    def crunch_sentences(self, sentences): #pragma: no cover
         """
         Create word lists from sentences and add them to trie-datastructure.
 
@@ -21,7 +21,7 @@ class Handler:
             self._trie.add_sentence(current_words)
 
 
-    def get_trie(self):
+    def get_trie(self): #pragma: no cover
         """
         Get all saved quotes.
 
@@ -31,6 +31,15 @@ class Handler:
         return self._trie.get_all()
 
     def weight_children(self, node):
+        """
+        Weights children names of the given node.
+
+        Args:
+            node (Trienode): Node whose children will be weighted.
+
+        Returns:
+            List(String): List of child names multiplied with their occurence-value.
+        """
         children = node._children
         weighted_words = []
         for word,node in children.items():
@@ -40,16 +49,24 @@ class Handler:
 
 
     def create_quote(self, length):
+        """
+        Begins at the root of trie, 
+        weights children along the way and picks words at random,
+        iterates according to the number in argument length.
+
+        Args:
+            length Integer: How many words will the generated quote have.
+
+        Returns:
+            String: Generated quote.
+        """
         curr_node = self._trie._root
         quote = []
         for i in range(length):
             weighted_words = self.weight_children(curr_node)
-            print(f"weighted_words = {weighted_words}")
             picked_word = random.choice(weighted_words)
-            print(f"picked_word = {picked_word}")
             quote.append(picked_word)
             curr_node = curr_node._children[picked_word]
-        print(f"quote-list = {quote}")
         return " ".join(quote)
 
 
