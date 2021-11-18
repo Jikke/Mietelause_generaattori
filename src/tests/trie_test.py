@@ -1,10 +1,10 @@
 import unittest
 from trie import Trie
 
+
 class TestTrie(unittest.TestCase):
     def setUp(self):
         self._trie = Trie()
-
 
     def test_instantiating_creates_empty_trie(self):
 
@@ -32,6 +32,5 @@ class TestTrie(unittest.TestCase):
         self._trie.add_sentence(sentence)
 
         all_quotes = self._trie.get_all()
-
 
         self.assertEqual(all_quotes, ["Very smart quote!"])

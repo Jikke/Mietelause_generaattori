@@ -15,7 +15,3 @@ class Trienode:
         self._children = {}
         self._occurences = 1
         self._is_end_of_sentence = False
-
-
-    
-    

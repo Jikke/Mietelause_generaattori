@@ -2,7 +2,8 @@ from files import Files
 from slicer import Slicer
 from handler import Handler
 from trie import Trie
-import os, re
+import os
+import re
 
 
 def main(files, slicer, handler, trie):
@@ -25,17 +26,16 @@ def main(files, slicer, handler, trie):
 
 if __name__ == "__main__":
     # Path to quotes in ./src/data/quote_archive.txt
-    quote_archive_path = os.path.join(os.path.expanduser("~"), "Quote_generator", "src", "data", "quote_archive.txt")
+    quote_archive_path = os.path.join(os.path.expanduser(
+        "~"), "Quote_generator", "src", "data", "quote_archive.txt")
 
     files_object = Files(quote_archive_path)
-    
+
     trie_object = Trie()
 
     slicer_object = Slicer()
 
     handler_object = Handler(trie_object, slicer_object)
-
-    
 
     # Pass file reader and slicer as objects to main-method
     main(files_object, slicer_object, handler_object, trie_object)

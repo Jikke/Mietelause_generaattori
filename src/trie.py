@@ -41,11 +41,11 @@ class Trie:
             return True
         curr_node = self._root
         for word in sentence:
-            if word not in curr_node._children:  
+            if word not in curr_node._children:
                 return False
             curr_node = curr_node._children[word]
         return curr_node._is_end_of_sentence
-    
+
     def get(self, node, word_list):
         """ 
         Recursive depth-first search method. 
@@ -81,7 +81,3 @@ class Trie:
         for node in curr_node._children.values():
             self.get(node, [])
         return self._quotes
-            
-
-    def __str__(self):
-        print("Placeholder")

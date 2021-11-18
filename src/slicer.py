@@ -1,5 +1,5 @@
-from trie import Trie
 import re
+
 
 class Slicer:
 
@@ -31,7 +31,7 @@ class Slicer:
         Returns:
             List: Clean sentence list.
         """
-        
+
         sliced_sentences = []
 
         for sentence in rawlist:
@@ -54,8 +54,6 @@ class Slicer:
 
         return sliced_sentences
 
-
-
     def slice_to_word_list(self, sentence):
         """One line of text modified into word list separated by spaces.
 
@@ -65,13 +63,8 @@ class Slicer:
         Returns:
             List(String): Wordlist with capitalized letters lowercased.
         """
-        
+
         current_words = sentence.split()
         current_words = [word.lower() for word in current_words]
-        
+
         return current_words
-
-
-
-
-
