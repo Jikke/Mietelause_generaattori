@@ -1,6 +1,6 @@
 # Week 4 report
 ## Tasks done
-I reworked the trie class into a two leveled one. It can be found on the trie_update branch, which has not yet been merged with main branch. \
+I reworked the trie class into a two leveled one. \
 The previous one pretty much only stored the quotes and had no way of being creative when it iterated deeper into the tree and tried to generate unique quote. \
 The updated trie stores all words in the root level and word following them to the second level. \
 The second level nodes are different from the root-level ones and thus have different occurence-values then their root-level counterparts. \
