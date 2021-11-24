@@ -20,15 +20,6 @@ class Handler:
             current_words = self._slicer.slice_to_word_list(sentence)
             self._trie.add_sentence(current_words)
 
-    def get_trie(self):  # pragma: no cover
-        """
-        Get all saved quotes.
-
-        Returns:
-            List(String): Quotes from trie-datastructure
-        """
-        return self._trie.get_all()
-
     def weight_children(self, node):
         """
         Weights children names of the given node.
@@ -63,6 +54,15 @@ class Handler:
         for i in range(length):  # pylint: disable=unused-variable
             weighted_words = self.weight_children(curr_node)
             picked_word = random.choice(weighted_words)
-            quote.append(picked_word)
-            curr_node = curr_node._children[picked_word]
+            # Has following words.
+            if len(self._trie._root._children[picked_word]._children) > 0:
+                quote.append(picked_word)
+                curr_node = self._trie._root._children[picked_word]
+            # Has not following words. End sentence and start from root.
+            else:
+                picked_word = picked_word + "."
+                quote.append(picked_word)
+                curr_node = self._trie._root
+
+        quote[0] = quote[0].capitalize()
         return " ".join(quote)

@@ -65,6 +65,10 @@ class Slicer:
         """
 
         current_words = sentence.split()
-        current_words = [word.lower() for word in current_words]
+        done_list = []
+        for word in current_words:
+            if word[-1] == '.':
+                word = word[:-1]
+            done_list.append(word.lower())
 
-        return current_words
+        return done_list

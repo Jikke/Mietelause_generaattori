@@ -5,7 +5,7 @@ class Trienode:
         """
         _children-dictionary has all the words following this word,
         Key = word as String, Value = corresponding trienode.
-        _occurences is the amount this word appears in this triepath.
+        _occurences is the amount this word appears overall (at root), or following this word (2nd level).
         If this node is leaf, _is_end_of_sentence = True.
 
         Args:

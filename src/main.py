@@ -16,12 +16,10 @@ def main(files, slicer, handler, trie):
 
     handler.crunch_sentences(sliced_sentences)
 
-    done_trie = handler.get_trie()
-
     root_node = handler._trie._root
 
     # Test prints..
-    print(handler.create_quote(7))
+    print(handler.create_quote(20))
 
 
 if __name__ == "__main__":
