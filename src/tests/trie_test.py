@@ -13,24 +13,16 @@ class TestTrie(unittest.TestCase):
     def test_adding_new_sentence_works(self):
 
         sentence = ["Very", "smart", "quote!"]
-        self._trie.add_sentence(sentence)
+        self._trie.add_sentence(sentence, 2)
 
         self.assertEqual(self._trie._root._children["Very"]._word, "Very")
 
-    def test_finding_sentence_works(self):
-
+    def test_adding_occurence_works(self):
         sentence = ["Very", "smart", "quote!"]
-        self._trie.add_sentence(sentence)
+        self._trie.add_sentence(sentence, 2)
+        sentence = ["Very", "smart", "also!"]
+        self._trie.add_sentence(sentence, 2)
+        sentence = ["Very", "smart", "too!"]
+        self._trie.add_sentence(sentence, 2)
 
-        found = self._trie.does_sentence_exists(["Very", "smart", "quote!"])
-
-        self.assertEqual(found, True)
-
-    def test_get_all_works(self):
-
-        sentence = ["Very", "smart", "quote!"]
-        self._trie.add_sentence(sentence)
-
-        all_quotes = self._trie.get_all()
-
-        self.assertEqual(all_quotes, ["Very smart quote!"])
+        self.assertEqual(self._trie._root._children["Very"]._occurences, 3)
