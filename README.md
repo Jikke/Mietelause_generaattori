@@ -7,5 +7,10 @@ The goal of this project is to create a creative quote generator using Markov ch
 [Week 3](https://github.com/Jikke/Quote_generator/blob/main/documentation/week3.md) \
 [Week 4](https://github.com/Jikke/Quote_generator/blob/main/documentation/week4.md)
 
+## Documentation
+
+[Definition](https://github.com/Jikke/Quote_generator/edit/main/documentation/definition.md) \
+[Implementation](https://github.com/Jikke/Quote_generator/blob/main/documentation/implementation.md)
+
 ## Unittest coverage
 [Coverage report](https://htmlpreview.github.io/?https://github.com/Jikke/Quote_generator/blob/main/documentation/index.html)
