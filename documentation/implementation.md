@@ -8,7 +8,7 @@ The program needs the folllowing classes for execution:
 * slicer.py
 * trienode.py
 * trie.py
-* handler.py \
+* handler.py 
 
 Data used in creating trie-datastructure is stored in either 
 * src/data/quotes_archive.txt 
