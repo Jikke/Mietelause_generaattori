@@ -13,7 +13,7 @@ The program needs the folllowing classes for execution:
 Data used in creating trie-datastructure is stored in either 
 * src/data/quotes_archive.txt 
 * src/data/quotes_dataset_one_column_copy.txt \
-At the moment the latter is used as it has over 50 000 sentences. \
+At the moment the latter is used as it has over 50 000 sentences.
 
 ## Usage of the program
 
@@ -26,7 +26,7 @@ Here handler-object will create trie-datastructure according to the Markov chain
 After this the handler-object creates the quote. While doing this, it gives weight to possible words according to their frequency in the read file. \
 First word is capitalized and period is added to the end of the created quote. \
 Afterwards the code will loop back and ask the user to give desired length of generated quote again. \
-Empty string ends execution. \
+Empty string ends execution. 
 
 ## Design of the trie-datastructure
 
@@ -38,7 +38,7 @@ Trienode is simple class. It has no methods and only three fields:
 Trie-class has one field and two methods:
 * root-field has the root trienode of the trie-datastructure which is named '\*'. It has no children when constructed.
 * add_sentence takes sentence to be added and level of Markov chain as parameters. It slices the sentence into Markov-level length pieces and passes them to
-* add_words, which actually stores the words as trienodes to the trie-datastructure. For new words new nodes are created, recurring ones add occurence-value to the corresponding trienode. \
+* add_words, which actually stores the words as trienodes to the trie-datastructure. For new words new nodes are created, recurring ones add occurence-value to the corresponding trienode. 
 
 ## Big-O notation analysis
 
@@ -50,9 +50,9 @@ Storing sentences to the trie-datastructure uses following methods:
   * The previous step is not neccessary as I could just make the data used clean from the get go. This is why I will skip this step in the complexity analysis.
 2. Secondly, it adds the created word-list into the trie-datastructure using add_sentence-method. It loops through all the words. (O(n\*m))
   * This loops through the sentence using add_words method to add the amount of words given in Markov-level (l) parameter at a time.
-  * Because the Markov-level (l) is a number 1-3 it is a known constant and will not affect the time complexity.
+  * Because the Markov-level (l) is a number 1-3 it is a known constant and will not affect the time complexity. \
 Therefore the time complexity of storing data from file to this trie-datastructure is **O(n\*m)** \
-where *n* is the amount of lines in the read file and *m* the amount of words in each line. \
+where *n* is the amount of lines in the read file and *m* the amount of words in each line. 
 
 ### Time complexity when creating quote
 
@@ -61,9 +61,9 @@ This is retrieving data from the trie-datastructure with some extra steps:
    * It loops as many times as the given quote length argument says (constant 4-15)
    * Before picking word, the possibilities must be weighted using weighted_words-method \
      which loops through the children (n) of the current trienode. O(n)
-2. For this analysis, the following library imported random-method is instant
+2. For this analysis, the following library imported random-method is instant \
 Therefore the time complexity of creating the quote is **O(n)** \
-where *n* is the amount of children of the current node. \
+where *n* is the amount of children of the current node. 
 
 
 ## Sources
