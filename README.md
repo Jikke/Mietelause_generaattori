@@ -12,7 +12,7 @@ It is coded with Python using Poetry for dependency management.
 
 ## Documentation
 
-[Definition](https://github.com/Jikke/Quote_generator/edit/main/documentation/definition.md) \
+[Definition](https://github.com/Jikke/Quote_generator/blob/main/documentation/definition.md) \
 [Instructions](https://github.com/Jikke/Quote_generator/blob/main/documentation/instructions.md) \
 [Implementation](https://github.com/Jikke/Quote_generator/blob/main/documentation/implementation.md) \
 [Test report](https://github.com/Jikke/Quote_generator/blob/main/documentation/test_report.md)
