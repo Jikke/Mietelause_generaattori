@@ -22,7 +22,7 @@ At the moment the latter is used as it has over 50 000 sentences.
     * rawtext-variable gets the lines read from given filepath. It is passed along with handler-object to the ui-objects start-method. 
 2. ui.py is a simple text-based user interface. First it asks the user to input desired Markov chain level (1-3). 
     * Here handler-object will create trie-datastructure (depth = markov chain level + 1) and input read lines into it. 
-    * After this the handler-object creates the quote. While doing this, it gives weight to words according to their frequency in the read file. 
+    * After this it gives weight to words according to their frequency in the read file. 
 3. Sedondly ui asks the user to input desired length of generated quote. 
 4. Lastly it asks for 1-3 (Markov level) words to begin the to be generated quote with. 
     * First word is capitalized by the program and period is added to the end of the created quote. 
@@ -67,6 +67,13 @@ This is retrieving data from the trie-datastructure with some extra steps:
 2. For this analysis, the following library imported random-method is instant \
 Therefore the time complexity of creating the quote is **O(n)** \
 where *n* is the amount of children of the current node. 
+
+### Space complexity of the stored data
+
+When storing a sentence to the trie-datastruture, a single word of it appears from 1 to the depth of *d* (Markov level + 1 = 2 to 4) amount of times in the trie. \
+Therefore longer sentences require only O(1) more space to be stored. However, this is a worst case scenario. The sentence may have recurring words which are stored by modifying already existing nodes \_occurence -field from one integer to another. \
+Storing *s* read sentences to the trie-datastructure, which average the length of *l* 
+
 
 
 ## Sources
