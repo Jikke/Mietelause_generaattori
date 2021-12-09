@@ -12,6 +12,6 @@ Even if the words were saved according to the give Markov chain level, they were
 I had to recall the topics of space complexity and Big-O notation. 
 
 ## Going forward
-Next week I will write the rest of needed documentation and make the GitHub release of the finalized project. \
+Next week I will write the rest of needed documentation and make the GitHub release of the finalized project. 
 
 Used hours: 12.
