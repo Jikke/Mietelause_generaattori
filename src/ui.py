@@ -1,6 +1,8 @@
 from handler import Handler
 from trie import Trie
 from slicer import Slicer
+import time
+
 
 
 class UI:  # pragma: no cover
@@ -29,7 +31,9 @@ class UI:  # pragma: no cover
                     print("!Given Markov level wasn't 1-3!")
                     continue
                 markov = key_input
+                start_time = time.time()
                 handler.crunch_sentences(sliced_sentences, markov)
+                print(f"Creating trie took {time.time()-start_time} seconds.")
 
             if length == None:
                 actual = input(
