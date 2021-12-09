@@ -17,16 +17,19 @@ At the moment the latter is used as it has over 50 000 sentences.
 
 ## Usage of the program
 
-The main.py is called when starting the program.
-It initializes and passes files_object, slicer_object, handler_object and ui to the main-method. \
-rawtext-variable gets the lines read from given filepath. It is passed along with handler-object to the ui-objects start-method. \
-ui.py is a simple text-based user interface. First it asks the user to input desired Markov chain level (1-3). \
-Now it asks the user to input desired length of generated quote. \
-Here handler-object will create trie-datastructure according to the Markov chain level and input read lines into it. \
-After this the handler-object creates the quote. While doing this, it gives weight to possible words according to their frequency in the read file. \
-First word is capitalized and period is added to the end of the created quote. \
-Afterwards the code will loop back and ask the user to give desired length of generated quote again. \
-Empty string ends execution. 
+1. The main.py is called when starting the program.
+    * It initializes and passes files_object, slicer_object, handler_object and ui to the main-method. 
+    * rawtext-variable gets the lines read from given filepath. It is passed along with handler-object to the ui-objects start-method. 
+2. ui.py is a simple text-based user interface. First it asks the user to input desired Markov chain level (1-3). 
+    * Here handler-object will create trie-datastructure (depth = markov chain level + 1) and input read lines into it. 
+    * After this it gives weight to words according to their frequency in the read file. 
+3. Sedondly ui asks the user to input desired length of generated quote. 
+4. Lastly it asks for 1-3 (Markov level) words to begin the to be generated quote with. 
+    * First word is capitalized by the program and period is added to the end of the created quote. 
+5. Now the quote is generated and printed.
+    * If no following words are found during generation of the quote, generating will end there and the quote will be shorter than given length.
+7. Here the code will loop back and ask the user to give desired length of generated quote and starting words again. 
+8. Empty string ends execution. 
 
 ## Design of the trie-datastructure
 
@@ -46,11 +49,11 @@ Trie-class has one field and two methods:
 
 Storing sentences to the trie-datastructure uses following methods:
 1. Hanlder-classes crunch_sentences, which loops through all of the lines (n) in the given file. (O(n))
-  * First it calls for slicer-classes slice_to_word_list-method which loops through all the words (m) in the given line, lowers capitalization and removes dots and returns word-list.
-  * The previous step is not neccessary as I could just make the data used clean from the get go. This is why I will skip this step in the complexity analysis.
+    * First it calls for slicer-classes slice_to_word_list-method which loops through all the words (m) in the given line, lowers capitalization and removes dots and returns word-list.
+    * The previous step is not neccessary as I could just make the data used clean from the get go. This is why I will skip this step in the complexity analysis.
 2. Secondly, it adds the created word-list into the trie-datastructure using add_sentence-method. It loops through all the words. (O(n\*m))
-  * This loops through the sentence using add_words method to add the amount of words given in Markov-level (l) parameter at a time.
-  * Because the Markov-level (l) is a number 1-3 it is a known constant and will not affect the time complexity. \
+    * This loops through the sentence using add_words method to add the amount of words given in Markov-level (l) parameter at a time.
+    * Because the Markov-level (l) is a number 1-3 it is a known constant and will not affect the time complexity. \
 Therefore the time complexity of storing data from file to this trie-datastructure is **O(n\*m)** \
 where *n* is the amount of lines in the read file and *m* the amount of words in each line. 
 
@@ -58,12 +61,20 @@ where *n* is the amount of lines in the read file and *m* the amount of words in
 
 This is retrieving data from the trie-datastructure with some extra steps:
 1. Handler-class uses the create_quote which begins at the root of the trie-datastructure
-   * It loops as many times as the given quote length argument says (constant 4-15)
-   * Before picking word, the possibilities must be weighted using weighted_words-method \
+    * It loops as many times as the given quote length argument says (constant 4-15)
+    * Before picking word, the possibilities must be weighted using weighted_words-method \
      which loops through the children (n) of the current trienode. O(n)
 2. For this analysis, the following library imported random-method is instant \
 Therefore the time complexity of creating the quote is **O(n)** \
 where *n* is the amount of children of the current node. 
+
+### Space complexity of the stored data
+
+When storing a sentence to the trie-datastruture, a single word of it appears from 1 to the depth of *d* (Markov level + 1 = 2 to 4) amount of times in the trie. \
+Therefore longer sentences require only O(1) more space to be stored. However, this is a worst case scenario. The sentence may have recurring words which are stored by modifying already existing nodes' \_occurence -fields from one integer to another. \
+Considering all arguments above, storing *n* words to the trie-datastructure takes maximum of O(d\*n) space. As we know, *d* has value of 2 to 4 so its space complexity is O(1). Because of this it can be seen as insignificant in this analysis. \
+In conclusion the space complexity of this datastructure is **O(n)** where *n* is the amount of stored words (nodes). 
+
 
 
 ## Sources

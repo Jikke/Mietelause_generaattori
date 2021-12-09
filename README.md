@@ -5,7 +5,8 @@ The goal of this project is to create a creative quote generator using Markov ch
 [Week 1](https://github.com/Jikke/Quote_generator/blob/main/documentation/week1.md) \
 [Week 2](https://github.com/Jikke/Quote_generator/blob/main/documentation/week2.md) \
 [Week 3](https://github.com/Jikke/Quote_generator/blob/main/documentation/week3.md) \
-[Week 4](https://github.com/Jikke/Quote_generator/blob/main/documentation/week4.md)
+[Week 4](https://github.com/Jikke/Quote_generator/blob/main/documentation/week4.md) \
+[Week 5](https://github.com/Jikke/Quote_generator/tree/main/documentation/week5.md)
 
 ## Documentation
 
