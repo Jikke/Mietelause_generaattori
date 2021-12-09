@@ -8,7 +8,7 @@ Added simple performance check to ui.py.
 
 ## What I learned
 Previously the create_quote() didn't actually take into account previous words as it should. \
-Even if the words were saved according to the give Markov chain level, they were always picked according to first level Markov chain. \
+Even if the words were saved according to the given Markov chain level, they were always picked according to first level Markov chain. \
 I had to recall the topics of space complexity and Big-O notation. 
 
 ## Going forward
