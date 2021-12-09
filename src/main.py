@@ -8,7 +8,6 @@ import re
 
 
 def main(files, slicer, handler, ui):
-
     rawtext = files.read_file()
 
     # raw_lines = slicer.slice_to_raw_lines(rawtext)

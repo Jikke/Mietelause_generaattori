@@ -61,6 +61,7 @@ class Handler:
         iterates according to the number in argument length.
 
         Args:
+            starting_words List(String): Words with which the generated quote begins.
             length Integer: How many words will the generated quote have.
 
         Returns:

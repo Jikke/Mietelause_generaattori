@@ -4,7 +4,6 @@ from slicer import Slicer
 import time
 
 
-
 class UI:  # pragma: no cover
 
     def __init__(self):
