@@ -32,12 +32,29 @@ class Handler:
         """
         children = node._children
         weighted_words = []
-        for word, node in children.items():
-            curr_list = [word] * node._occurences
+        for word, trie_node in children.items():
+            curr_list = [word] * trie_node._occurences
             weighted_words.extend(curr_list)
         return weighted_words
 
-    def create_quote(self, length):
+    def get_leaf(self, words):
+        curr_node = self._trie._root
+        for i in range(len(words)+1):
+            if i == len(words):
+                picked_word = self.get_random_child(curr_node)
+                return picked_word
+            if words[i] in curr_node._children:
+                curr_node = curr_node._children[words[i]]
+                continue
+            return None
+
+    def get_random_child(self, node):
+        if len(node._children) > 0 and node._children is not None:
+            weighted_words = self.weight_children(node)
+            return random.choice(weighted_words)
+        return None
+
+    def create_quote(self, starting_words, length):
         """
         Begins at the root of trie,
         weights children along the way and picks words at random,
@@ -49,19 +66,24 @@ class Handler:
         Returns:
             List(String): Generated quote as list.
         """
-        curr_node = self._trie._root
-        quote = []
-        for i in range(length):  # pylint: disable=unused-variable
-            weighted_words = self.weight_children(curr_node)
-            picked_word = random.choice(weighted_words)
-            # Has following words.
-            if len(curr_node._children[picked_word]._children) > 0:
+
+        quote = starting_words
+        first_generated_word = self.get_leaf(starting_words)
+        if first_generated_word is not None:
+            quote.append(first_generated_word)
+        else:
+            return None
+        current_words = starting_words[1:]
+
+        for i in range(length-len(quote)):  # pylint: disable=unused-variable
+            picked_word = self.get_leaf(current_words)
+            if picked_word is not None:
                 quote.append(picked_word)
-                curr_node = curr_node._children[picked_word]
-            # Has not following words. End sentence and start from root.
+                current_words.pop(0)
+                current_words.append(picked_word)
             else:
-                quote.append(picked_word)
-                curr_node = self._trie._root._children[picked_word]
+                print("No more following words found.")
+                break
 
         quote[0] = quote[0].capitalize()
         quote[-1] = quote[-1]+"."

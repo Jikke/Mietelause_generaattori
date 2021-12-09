@@ -10,7 +10,7 @@ fail-under=10.0
 
 # Add files or directories to the blacklist. They should be base names, not
 # paths.
-ignore=CVS,main.py,tests
+ignore=CVS,main.py,ui.py,files.py,tests
 
 # Add files or directories matching the regex patterns to the blacklist. The
 # regex matches against base names, not paths.
@@ -543,7 +543,11 @@ exclude-protected=_asdict,
                   _fields,
                   _replace,
                   _source,
-                  _make
+                  _make,
+                  _root,
+                  _word,
+                  _children,
+                  _occurences
 
 # List of valid names for the first argument in a class method.
 valid-classmethod-first-arg=cls
