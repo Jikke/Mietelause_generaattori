@@ -14,7 +14,8 @@ It is coded with Python using Poetry for dependency management.
 
 [Definition](https://github.com/Jikke/Quote_generator/edit/main/documentation/definition.md) \
 [Instructions](https://github.com/Jikke/Quote_generator/blob/main/documentation/instructions.md) \
-[Implementation](https://github.com/Jikke/Quote_generator/blob/main/documentation/implementation.md)
+[Implementation](https://github.com/Jikke/Quote_generator/blob/main/documentation/implementation.md) \
+[Test report](https://github.com/Jikke/Quote_generator/blob/main/documentation/test_report.md)
 
 ## Usage of the program
 

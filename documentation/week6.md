@@ -2,7 +2,7 @@
 ## Tasks done
 Updated the create_quote -method to take also beginning words of the desired quote as arguments. This method uses get_leaf() -method to generate the quote as it should using trie-datastructure. \
 Refactored and cleaned code. \
-Wrote space complexity report and instruction documentation. \
+Wrote space complexity report, test report and instruction documentation. \
 Updated README with general information of the project and executing instructions. \
 Added simple performance check to ui.py.
 
