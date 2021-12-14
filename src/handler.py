@@ -38,6 +38,16 @@ class Handler:
         return weighted_words
 
     def get_leaf(self, words):
+        """
+        Gets words as argument of which following word is picked at random 
+        (propabilities are influenced by word's occurence after these specific words).
+
+        Args:
+            words List(String): List of words previous to the to be picked one.
+
+        Returns:
+            String: Name of picked word.
+        """
         curr_node = self._trie._root
         for i in range(len(words)+1):
             if i == len(words):
@@ -49,6 +59,15 @@ class Handler:
             return None
 
     def get_random_child(self, node):
+        """
+        Weights and picks random child of the node given as argument.
+
+        Args:
+            node (Trienode): Parent trienode of whose children will be picked.
+
+        Returns:
+            String: Random name of children picked.
+        """
         if len(node._children) > 0 and node._children is not None:
             weighted_words = self.weight_children(node)
             return random.choice(weighted_words)

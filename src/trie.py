@@ -5,13 +5,14 @@ class Trie:
 
     def __init__(self):
         """
-        _root is "*"-trienode. First words of quotes are it's children.
+        _root is "*"-trienode.
         """
         self._root = Trienode("*")
 
     def add_sentence(self, sentence, level):
         """
         Adds words into trie-datastructure according to the used level of Markov chain.
+        This method handles sentences into shorter word-lists, actual storing happens in add_words -method.
 
         Args:
             sentence (List(String)): Clean sliced list of words in quote.
@@ -29,7 +30,8 @@ class Trie:
             sentence.pop(0)
 
     def add_words(self, words):
-        """Adds words into trie-datastructure according to the length of words-list.
+        """
+        Adds words into trie-datastructure according to the length of words-list.
 
         Args:
             words List(String): Length of this list depends on the level of Markov chain.

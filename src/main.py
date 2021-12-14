@@ -10,17 +10,16 @@ import re
 def main(files, slicer, handler, ui):
     rawtext = files.read_file()
 
-    # raw_lines = slicer.slice_to_raw_lines(rawtext)
-
-    # sliced_sentences = slicer.slice_specials(raw_lines)
-
     ui.start(handler, rawtext)
 
 
 if __name__ == "__main__":
-    # Path to quotes in ./src/data/quote_archive.txt
-    quote_archive_path = os.path.join(os.path.expanduser(
-        "~"), "Quote_generator", "src", "data", "quotes_dataset_one_column_copy.txt")
+    # I have been informed that this path does not work. Keeping it as a backup in this comment.
+    #quote_archive_path = os.path.join(os.path.expanduser(
+    #    "~"), "Quote_generator", "src", "data", "quotes_dataset_one_column_copy.txt")
+
+    # Path to quotes in ./src/data/quotes_dataset_one_column_copy.txt
+    quote_archive_path = os.getcwd() + '/src/data/quotes_dataset_one_column_copy.txt'
 
     files_object = Files(quote_archive_path)
 
