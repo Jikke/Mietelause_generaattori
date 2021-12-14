@@ -15,7 +15,7 @@ def main(files, slicer, handler, ui):
 
 if __name__ == "__main__":
     # I have been informed that this path does not work. Keeping it as a backup in this comment.
-    #quote_archive_path = os.path.join(os.path.expanduser(
+    # quote_archive_path = os.path.join(os.path.expanduser(
     #    "~"), "Quote_generator", "src", "data", "quotes_dataset_one_column_copy.txt")
 
     # Path to quotes in ./src/data/quotes_dataset_one_column_copy.txt
