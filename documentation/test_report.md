@@ -4,7 +4,7 @@
 
 Unittests can be run with `invoke coverage` when the virtual environment is running. \
 The relatively small amount of methods and classes made writing unittests for this program a breeze. I tried my best to keep the code clean and as simple as possible. \
-ui.py and main.py are omitted from coverage as well as handler-classes method crunch_sentences() as it only uses other classes' methods. \
+ui.py and main.py are omitted from coverage as well as handler-classes method crunch_sentences() as it only uses other classes' methods. 
 
 ### Unittest coverage
 
@@ -15,7 +15,7 @@ Unittest coverage is 93%. \
 
 
 User input calls are the places where the exectuion most likely will throw errors. \
-The user interface of this program has three input calls which I have manually tested with the following kinds of inputs: \
+The user interface of this program has three input calls which I have manually tested with the following kinds of inputs: 
 1. Desired Markov chain level field:
     * Characters and words &#8594; `print("!Please input integer only!")`
     * Space &#8594; `print("!Please input integer only!")`
