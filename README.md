@@ -52,11 +52,11 @@ or
 ```
     python3 src/main.py
 ```
-The path to the learning data is structured in relation to the current user 
+The path to the learning data is
 ```
-    ~/Quote_generator/src/data/quotes_dataset_one_column_copy.txt
+    os.getcwd() + '/src/data/quotes_dataset_one_column_copy.txt'
 ```
-and it does not work with different kinds of file structures. Option here is to hard code the users structure before executing the program.
+
 ### Running unittests
 
 Unittest can be executed with command
