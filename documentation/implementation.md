@@ -59,7 +59,17 @@ Therefore longer sentences require only O(1) more space to be stored. However, t
 Considering all arguments above, storing *n* words to the trie-datastructure takes maximum of O(d\*n) space. As we know, *d* has value of 2 to 4 so its space complexity is O(1). Because of this it can be seen as insignificant in this analysis. \
 In conclusion the space complexity of this datastructure is **O(n)** where *n* is the amount of stored words (nodes). 
 
+## Ideas for follow-up develpoment
 
+There's much room for improvement in this project. The following list is definitely not exhaustive:
+* Cleaner text file for quote generation. (There's still some non-char keys and conjoined words there.)
+* GUI
+* Graphical presentation of the trie-datastructure
+* More modifiability for the user
+    * Using own textfile to create trie
+    * More options if quote ends before desired length of words (continue anyway, start over, etc.)
+    * Possibility to modify propabilities of less common words to be picked
+* Smarter quote ending (exclamation marks, question marks)
 
 ## Sources
 * [Wikipedia: Trie](https://en.wikipedia.org/wiki/Trie)
