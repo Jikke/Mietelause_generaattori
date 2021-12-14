@@ -7,7 +7,7 @@
     * Here handler-object will create trie-datastructure (depth = markov chain level + 1) and input read lines into it. 
     * After this it gives weight to words according to their frequency in the read file. 
 3. Secondly ui asks the user to input desired length of generated quote. 
-4. Lastly it asks for 1-3 (Markov level) words to begin the to be generated quote with. 
+4. Lastly it asks for 1-3 (Markov level) lower case words to begin the to be generated quote with. 
     * First word is capitalized by the program and period is added to the end of the created quote. 
 5. Now the quote is generated and printed.
     * If no following words are found during generation of the quote, generating will end there and the quote will be shorter than given length.
