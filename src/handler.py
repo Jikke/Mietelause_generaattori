@@ -73,28 +73,29 @@ class Handler:
             return random.choice(weighted_words)
         return None
 
-    def create_quote(self, starting_words, length):
+    def create_quote(self, word, length, markov):
         """
         Begins at the root of trie,
         weights children along the way and picks words at random,
         iterates according to the number in argument length.
 
         Args:
-            starting_words List(String): Words with which the generated quote begins.
+            words List(String): Words with which the generated quote begins.
             length Integer: How many words will the generated quote have.
 
         Returns:
             List(String): Generated quote as list.
         """
-
-        quote = starting_words
-        first_generated_word = self.get_leaf(starting_words)
-        if first_generated_word is not None:
-            quote.append(first_generated_word)
-        else:
-            return None
-        current_words = starting_words[1:]
-
+        current_words = [word]
+        for i in range(markov):
+            generated_word = self.get_leaf(current_words)
+            if generated_word is not None:
+                current_words.append(generated_word)
+            else:
+                return None
+        quote = current_words
+        
+        current_words = current_words[1:]
         for i in range(length-len(quote)):  # pylint: disable=unused-variable
             picked_word = self.get_leaf(current_words)
             if picked_word is not None:
@@ -102,7 +103,7 @@ class Handler:
                 current_words.pop(0)
                 current_words.append(picked_word)
             else:
-                print("No more following words found.")
+                print(f"\nThe length of the following quote is only {len(quote)} because no more following words were found.")
                 break
 
         quote[0] = quote[0].capitalize()

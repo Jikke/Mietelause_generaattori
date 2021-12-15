@@ -43,3 +43,9 @@ class Trie:
             else:
                 curr_node._children[words[i]] = Trienode(words[i])
             curr_node = curr_node._children[words[i]]
+
+    def nodify(self, word):
+        if self._root._children[word] is not None:
+            return self._root._children[word]
+        else:
+            return None

@@ -13,12 +13,12 @@ class UI:  # pragma: no cover
         key_input = "Empty"
         markov = None
         length = None
-        starting_words = None
+        starting_word = None
         while(True):
             print("\n--Empty input quits program.--")
             if markov == None:
                 actual = input(
-                    "What level of Markov Chain do you want to use? (1-3): \n")
+                    "What level of Markov Chain do you want to use? (1-6): \n")
                 try:
                     key_input = int(actual)
                 except ValueError:
@@ -26,8 +26,8 @@ class UI:  # pragma: no cover
                         break
                     print("!Please input integer only!")
                     continue
-                if key_input < 1 or key_input > 3:
-                    print("!Given Markov level wasn't 1-3!")
+                if key_input < 1 or key_input > 6:
+                    print("!Given Markov level wasn't 1-6!")
                     continue
                 markov = key_input
                 start_time = time.time()
@@ -36,7 +36,7 @@ class UI:  # pragma: no cover
 
             if length == None:
                 actual = input(
-                    "\nHow many words do you want to generate? (4-15): \n")
+                    f"\nHow many words do you want to generate? ({markov+1}-20): \n")
                 try:
                     key_input = int(actual)
                 except ValueError:
@@ -44,34 +44,38 @@ class UI:  # pragma: no cover
                         break
                     print("!Please input integer only!")
                     continue
-                if key_input < 4 or key_input > 15:
-                    print("!Given length wasn't 4-15 words!")
+                if key_input < markov+1 or key_input > 20:
+                    print(f"!Given length wasn't {markov+1}-20 words!")
                     continue
                 length = key_input
 
-            if starting_words == None:
+            if starting_word == None:
                 actual = input(
-                    f"\nGive {markov} lowercase starting words for the quote separated with space (' '): \n")
+                    f"\nGive lowercase starting word for the quote: \n")
                 try:
                     if actual == "":
                         break
-                    key_input = list(actual.split(" "))
+                    key_input = actual
                 except:
                     print("!Something is wrong with the input!")
                     continue
-                if len(key_input) != markov:
-                    print(f"!Given amount of words wasn't {markov}!")
+                if key_input.isalpha():
+                    starting_word = key_input
+                else:
+                    print("!Input had non alphabets!")
                     continue
-                starting_words = key_input
-            key_input = None
 
-            quote_list = handler.create_quote(starting_words, length)
-            if quote_list is not None:
-                quote = " ".join(quote_list)
-                print(f"\n\"{quote}\"")
-            else:
-                print("There are no following words for the one(s) given.")
+            word = starting_word
+            for i in range(10):  # pylint: disable=unused-variable
+                quote_list = handler.create_quote(word, length, markov)
+                if quote_list is not None:
+                    quote = " ".join(quote_list)
+                    print(f"\"{quote}\"")
+                    quote = None
+                else:
+                    print("There are no following words for the one(s) given.")
+                quote_list = None
 
             length = None
-            starting_words = None
-            quote_list = None
+            starting_word = None
+            
