@@ -44,7 +44,8 @@ The correctness of this project is analysed from following viewpoints:
 
 ### Test results
 
-The most interesting findings appeared at Markov chain levels 2-4. Anything lower (and even at 2) was pretty much gibberish. Higher levels usually generated only copies of the given sentences in the data file.
+The most interesting findings appeared at Markov chain levels 2-4. Anything lower (and even at 2) was pretty much gibberish. Higher levels usually generated only copies of the given sentences in the data file. \
+All of the following sentences were checked out word by word that they were actually generated using Markov Chain as expected.
 
 #### Parameters:  4, 20, "the"
 
