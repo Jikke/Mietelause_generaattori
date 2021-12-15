@@ -23,11 +23,11 @@ class TestHandler(unittest.TestCase):
                          'so', 'so', 'so', 'very', 'very', 'very', 'smart', 'smart', 'smart'])
 
     def test_quote_generation_works_with_proper_arguments(self):
-        starting_words = ["smart"]
-        quote = self._handler.create_quote(starting_words, 3)
+        starting_word = "smart"
+        quote = self._handler.create_quote(starting_word, 3, 1)
         self.assertEqual(len(quote), 3)
 
     def test_quote_generation_doesnt_work_with_invalid_arguments(self):
-        starting_words = ["i", "am", "invalid", "input"]
-        quote = self._handler.create_quote(starting_words, 3)
+        starting_word = 123
+        quote = self._handler.create_quote(starting_word, 3, 1)
         self.assertEqual(quote, None)
