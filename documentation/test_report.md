@@ -58,9 +58,10 @@ Most of the sentences cannot reach the desired length as following words are har
 
 "_A moving sea between the shores of lake michigan._"
 
-Original ended "-- a moving sea between the shores of your souls .", but was succesfully followed up with "-- on the shores of Lake Michigan."
+Original ended "_-- a moving sea between the shores of your souls ._", but was succesfully followed up with "_-- on the shores of Lake Michigan._"
 
 Even if the following quote didn't reach desired length, it is pretty much understandable.
+
 "_A tragedy if you’re still alive._"
 
 Still understandable, but is mostly copied from the data file.
@@ -68,9 +69,9 @@ Seems to be easier to deliver quotes that are of the desired length than at Mark
 
 #### Parameters:  3, 15, "the"
 
-Again, not desired length but still interesting.
-
 "_The wind blows straight through because no one owns anyone._"
+
+Again, not desired length but still interesting.
 
 #### Parameters:  2, 8, "it"
 
