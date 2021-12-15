@@ -23,12 +23,12 @@ It is coded with Python using Poetry for dependency management.
 
 The program has over 50 000 lines of sentences in a .txt file which it uses as data to create the trie-datastructure. \
 This data is used to generate "creative" sentences, sometimes even quotes according to other input the user gives, which are
-* Level of Markov chain (1-3)
-* Desired length of generated quote (4-15 words) 
-* Desired beginning words of the generated quote (Given Markov chain level determines the amount) 
+* Level of Markov chain (1-6)
+* Desired length of generated quote (Markov + 1 - 20 words) 
+* Desired beginning word of the generated quote
 
 The length of generated quote might be less than desired if the program is not able to find following words at any given point during generation. \
-The Markov chain level is capped at 3 because the higher the level is, the less options the generator has to make creative choices. \
+The Markov chain level is capped at 6 but the higher the level is, the less options the generator has to make creative choices. \
 On the other hand, the lower the level is, the more illegible the output is. \
 Markov chain level 2 gave most satisfying outputs during my testing. \
 In depth instructions [here](https://github.com/Jikke/Quote_generator/blob/main/documentation/instructions.md).
