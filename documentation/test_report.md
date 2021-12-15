@@ -19,17 +19,15 @@ The user interface of this program has three input calls which I have manually t
 1. Desired Markov chain level field:
     * Characters and words &#8594; `print("!Please input integer only!")`
     * Space &#8594; `print("!Please input integer only!")`
-    * Integers over and under the proper range of 1 to 3 &#8594; `print("!Given Markov level wasn't 1-3!")`
+    * Integers over and under the proper range of 1 to 3 &#8594; `print("!Given Markov level wasn't 1-6!")`
     * Empty input &#8594; Ends execution as it should.
 2. Desired quote length field:
     * Characters and words &#8594; `print("!Please input integer only!")`
     * Space &#8594; `print("!Please input integer only!")`
-    * Integers over and under the proper range of 4 to 15 &#8594; `print("!Given length wasn't 4-15 words!")`
+    * Integers over and under the proper range of {markov} to 20 &#8594; `print("!Given length wasn't {markov}-20 words!")`
     * Empty input &#8594; Ends execution as it should
-3. Field for desired starting words of the quote :
+3. Field for desired starting word of the quote:
     * Non-characters and non-words &#8594; `print("There are no following words for the one(s) given.")`
-    * Space &#8594; `print("There are no following words for the one(s) given.")` if Markov is 2 (input here is two empty "words") else `print(f"!Given amount of words wasn't {markov}!")`
-    * Word amounts of over and under the Markov level &#8594; `print(f"!Given amount of words wasn't {markov}!")`
     * Empty input &#8594; Ends execution as it should.
  
 ## Correctness tests
