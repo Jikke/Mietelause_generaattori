@@ -47,21 +47,21 @@ All of the following sentences were checked out word by word that they were actu
 
 #### Parameters:  4, 20, "the"
 
-"The root cause of all evil in the world comes from us bothering with each other."
+"_The root cause of all evil in the world comes from us bothering with each other._"
 
-Original ended "-- the root cause of all evil in the world.", but was succesfully followed up with "-- evil in the world comes from us bothering with each other --" by the program.
+Original ended "_-- the root cause of all evil in the world._", but was succesfully followed up with "_-- evil in the world comes from us bothering with each other --_" by the program.
 
 Many understandable sentences, but pretty much every one of them are copied from the data file.
 Most of the sentences cannot reach the desired length as following words are hard to come by if starting words are picked from the end of a data file sentence.
 
 #### Parameters:  3, 14, "a"
 
-"A moving sea between the shores of lake michigan."
+"_A moving sea between the shores of lake michigan._"
 
 Original ended "-- a moving sea between the shores of your souls .", but was succesfully followed up with "-- on the shores of Lake Michigan."
 
 Even if the following quote didn't reach desired length, it is pretty much understandable.
-"A tragedy if you’re still alive."
+"_A tragedy if you’re still alive._"
 
 Still understandable, but is mostly copied from the data file.
 Seems to be easier to deliver quotes that are of the desired length than at Markov Chain levels 4 and higher.
@@ -69,10 +69,11 @@ Seems to be easier to deliver quotes that are of the desired length than at Mark
 #### Parameters:  3, 15, "the"
 
 Again, not desired length but still interesting.
-"The wind blows straight through because no one owns anyone."
+
+"_The wind blows straight through because no one owns anyone._"
 
 #### Parameters:  2, 8, "it"
 
-"It always will be something that god did."
+"_It always will be something that god did._"
 
 Much harder to find understandable sentences at this level, but pretty much all of them are self-generated and of desired length.
