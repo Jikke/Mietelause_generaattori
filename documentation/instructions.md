@@ -6,7 +6,7 @@
 2. ui.py is a simple text-based user interface. First it asks the user to input desired Markov chain level (1-6). 
     * Here handler-object will create trie-datastructure (depth = markov chain level + 1) and input read lines into it. 
     * After this it gives weight to words according to their frequency in the read file. 
-3. Secondly ui asks the user to input desired length of generated quote (Markov level - 20). 
+3. Secondly ui asks the user to input desired length of generated quote (Markov chain level+1 - 20). 
 4. Lastly it asks for one lower case word to begin the to be generated quote with. 
     * First word is capitalized by the program and period is added to the end of the created quote. 
 5. Now ten quotes are generated and printed.
