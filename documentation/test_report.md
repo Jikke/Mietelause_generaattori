@@ -24,7 +24,7 @@ The user interface of this program has three input calls which I have manually t
 2. Desired quote length field:
     * Characters and words &#8594; `print("!Please input integer only!")`
     * Space &#8594; `print("!Please input integer only!")`
-    * Integers over and under the proper range of {markov} to 20 &#8594; `print("!Given length wasn't {markov}-20 words!")`
+    * Integers over and under the proper range of {markov+1} to 20 &#8594; `print("!Given length wasn't {markov+1}-20 words!")`
     * Empty input &#8594; Ends execution as it should
 3. Field for desired starting word of the quote:
     * Non-characters and non-words &#8594; `print("There are no following words for the one(s) given.")`
