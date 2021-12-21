@@ -45,18 +45,19 @@ where *n* is the amount of lines in the read file and *m* the amount of words in
 
 This is retrieving data from the trie-datastructure with some extra steps:
 1. Handler-class uses the create_quote which begins at the root of the trie-datastructure
-    * It loops as many times as the given quote length argument says (constant 4-15)
+    * It loops *m* times which is the desired quote length(constant (Markov level+1) to 20)
     * Before picking word, the possibilities must be weighted using weighted_words-method \
-     which loops through the children (n) of the current trienode. O(n)
+     which loops through the children *n* of the current trienode. O(n)
 2. For this analysis, the following library imported random-method is instant \
-Therefore the time complexity of creating the quote is **O(n)** \
-where *n* is the amount of children of the current node. 
+Therefore the time complexity of creating the quote is O(m\*n) \
+where *m* is the desired amount of words and *n* is the average amount of children of a node. \
+Since *m* is constant, the final time complexity is **O(n)**.
 
 ### Space complexity of the stored data
 
-When storing a sentence to the trie-datastruture, a single word of it appears from 1 to the depth of *d* (Markov level + 1 = 2 to 4) amount of times in the trie. \
+When storing a sentence to the trie-datastruture, a single word of it appears from 1 to the depth of *d* (Markov level + 1 = 2 to 7) amount of times in the trie. \
 Therefore longer sentences require only O(1) more space to be stored. However, this is a worst case scenario. The sentence may have recurring words which are stored by modifying already existing nodes' \_occurence -fields from one integer to another. \
-Considering all arguments above, storing *n* words to the trie-datastructure takes maximum of O(d\*n) space. As we know, *d* has value of 2 to 4 so its space complexity is O(1). Because of this it can be seen as insignificant in this analysis. \
+Considering all arguments above, storing *n* words to the trie-datastructure takes maximum of O(d\*n) space. As we know, *d* has value of 2 to 7 so its space complexity is O(1). Because of this it can be seen as insignificant in this analysis. \
 In conclusion the space complexity of this datastructure is **O(n)** where *n* is the amount of stored words (nodes). 
 
 ## Ideas for follow-up develpoment
